@@ -1,0 +1,14 @@
+.giphy {
+    margin: 10px;
+
+  }
+
+  .giphy img {
+    height: 100px;
+    width: 100px;
+    
+  }
+
+  agm-map {
+    height: 300px;
+  }

@@ -1,0 +1,39 @@
+<mat-card>
+    <form #busCompanyForm="ngForm" (ngSubmit)="save(busCompanyForm.value)">
+      <mat-card-header>
+        <mat-card-title><h2>{{busCompany.name ? 'Edit' : 'Add'}} BusCompany</h2></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <input type="hidden" [(ngModel)]="busCompany.href" name="href" #href>
+        <mat-form-field>
+          <input matInput placeholder="Bus Company Name" [(ngModel)]="busCompany.name"
+                 required name="name" #name>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Bus Company email" [(ngModel)]="busCompany.email"
+                   required name="email" #email>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="Bus Company Address" [(ngModel)]="busCompany.address"
+                     required name="address" #address>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Bus Company phone" [(ngModel)]="busCompany.phone"
+                       required name="phone" #phone>
+              </mat-form-field>
+      </mat-card-content>
+      <h1>testing id {{busCompany.href}}</h1>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit"
+                [disabled]="!busCompanyForm.form.valid">Save</button>
+        <button mat-raised-button color="secondary" (click)="remove(busCompany.href)"
+                *ngIf="busCompany.href" type="button">Delete</button>
+        <a mat-button routerLink="/bus-company-list">Cancel</a>
+      </mat-card-actions>
+      <mat-card-footer>
+        <div class="giphy">
+          <img src="https://d1rw89lz12ur5s.cloudfront.net/photo/pinkgorillagames/file/b228d784b1ad244c2afc90dfb37ee277/large/Zelda%20Phantom%20Hourglass%20Link%20Small%20Plush.jpg" alt="test image">
+        </div>
+      </mat-card-footer>
+    </form>
+  </mat-card>
