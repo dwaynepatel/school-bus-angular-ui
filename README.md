@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Schoolbus2Ui
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
@@ -25,3 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# schoolbus-ui
+Angular front end for the school bus application
+>>>>>>> f60b24a4f199a536dddf7b41988873b075bed782
