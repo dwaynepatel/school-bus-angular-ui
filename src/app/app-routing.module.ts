@@ -8,6 +8,9 @@ import { StopListComponent } from './components/stop/stop-list.component';
 import { StopEditComponent } from './components/stop/stop-edit.component';
 import { RouteListComponent } from './components/route/route-list.component';
 import { RouteEditComponent } from './components/route/route-edit.component';
+import { BusCompanyComponent } from './components/bus-company/bus-company.component';
+import { PassengerEditComponent } from './components/passenger/passenger-edit.component';
+import { PassengerListComponent } from './components/passenger/passenger-list.component';
 
 
 const routes: Routes = [
@@ -18,11 +21,15 @@ const routes: Routes = [
     component: BusCompanyListComponent
   },
   {
+    path: 'bus-company',
+    component: BusCompanyComponent
+  },
+  {
     path: 'bus-company-add',
     component: BusCompanyEditComponent
   },
   {
-    path: 'bus-company-edit/:id',
+    path: 'bus-company-edit/:busCompanyId',
     component: BusCompanyEditComponent
   },
 //driver
@@ -31,11 +38,11 @@ const routes: Routes = [
     component: DriverListComponent
   },
   {
-    path: 'driver-add',
+    path: 'driver-add/:busCompanyId',
     component: DriverEditComponent
   },
   {
-    path: 'driver-edit/:id',
+    path: 'driver-edit/:id/:busCompanyId',
     component: DriverEditComponent
   },
 
@@ -49,13 +56,32 @@ const routes: Routes = [
     component: StopEditComponent
   },
   {
-    path: 'stop-edit/:id',
+    path: 'stop-add/:busCompanyId/:routeId',
+    component: StopEditComponent
+  },
+  {
+    path: 'stop-edit/:id/:routeId/:busCompanyId',
     component: StopEditComponent
   },
 
+    //passenger
+    {
+      path: 'passenger-list',
+      component: PassengerListComponent
+    },
+    {
+      path: 'passenger-add',
+      component: PassengerEditComponent
+    },
+    {
+      path: 'passenger-edit/:id',
+      component: PassengerEditComponent
+    },
+
+
   //bus route
   {
-    path: 'route-list',
+    path: 'route-list/:busCompanyId',
     component: RouteListComponent
   },
   {
@@ -63,7 +89,24 @@ const routes: Routes = [
     component: RouteEditComponent
   },
   {
-    path: 'route-edit/:id',
+    path: 'route-add/:busCompanyId',
+    component: RouteEditComponent
+  },
+  {
+    path: 'route-add/:busCompanyId/:routeId',
+    component: RouteEditComponent
+  },
+  {
+    path: 'route-edit/:busCompanyId/:id',
+    component: RouteEditComponent
+  },
+  {
+    path: 'route-edit/:busCompanyId',
+    component: RouteEditComponent
+  },
+
+  {
+    path: 'route-edit',
     component: RouteEditComponent
   }
 

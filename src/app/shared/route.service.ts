@@ -15,6 +15,10 @@ export class RouteService {
     return this.http.get(this.ROUTE_API)  
   }
 
+  getAllFromBusCompanyId(busCompanyId: string): Observable<any>{
+    return this.http.get(this.API +  '/' + "routesById" + '/' + busCompanyId);
+  }
+
   get(id: string) {
     return this.http.get(this.ROUTE_API + '/' + id);
   }

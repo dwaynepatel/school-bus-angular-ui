@@ -10,7 +10,11 @@ import { StopService } from '../../shared/stop.service';
   styleUrls: ['./stop-edit.component.css']
 })
 export class StopEditComponent implements OnInit {
-  stop: any = {}
+  stop: any = {};
+  //variable for route id
+  routeId: string;
+  //variable for bus company id
+  busCompanyId: string;
 
   //default location for new stop is kildare.
   // possible use bus company location to set default location for new stop.
@@ -47,14 +51,19 @@ export class StopEditComponent implements OnInit {
     this.getDirection();
 
    
-    this.sub = this.route.params.subscribe(params => {
-      const id = params['id'];
+    this.sub = this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+       this.busCompanyId = params.get('busCompanyId');
+      const routeId = params.get('routeId');
+      //variable for route id
+      this.routeId = routeId;
+      console.log("stop  id ", id);
+      console.log("stop route id ", this.routeId);
+      console.log("stop bus company id ", this.busCompanyId);
+      
       if (id) {
         this.stopService.get(id).subscribe((stop: any) => {
           if (stop) {
-            //testing response
-            console.log("bus stop " + stop.name);
-            console.log("this bus stop " + this.stop.href);
             console.log(stop.gpsLat);
             console.log(stop.gpsLon);
             this.latitude = stop.gpsLat;
@@ -94,7 +103,7 @@ onChoseLocation(event){
 }
 
   gotoList() {
-    this.router.navigate(['/stop-list']);
+    this.router.navigate(['/route-edit', this.busCompanyId, this.routeId]);
   }
 
   ngOnDestroy(){

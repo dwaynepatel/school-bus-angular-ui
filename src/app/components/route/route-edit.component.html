@@ -5,10 +5,21 @@
       </mat-card-header>
       <mat-card-content>
         <input type="hidden" [(ngModel)]="busRoute.href" name="href" #href>
+
+        <mat-form-field>
+            <input matInput placeholder="route id" [(ngModel)]="busRoute.id"
+                    name="id" #id>
+            </mat-form-field>
+
+
         <mat-form-field>
           <input matInput placeholder="Bus Route Name" [(ngModel)]="busRoute.name"
                  required name="name" #name>
         </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Bus company id"[(ngModel)]="busCompanyId"
+                   required name="busCompanyId" #hadToChangeName>
+            </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="Bus Route price" [(ngModel)]="busRoute.price"
                    required name="price" #price>
@@ -24,7 +35,7 @@
                 [disabled]="!busRouteForm.form.valid">Save</button>
         <button mat-raised-button color="secondary" (click)="remove(busRoute.href)"
                 *ngIf="busRoute.href" type="button">Delete</button>
-        <a mat-button routerLink="/route-list">Cancel</a>
+        <a mat-button [routerLink]="['/bus-company-edit', busCompanyId]">Cancel</a>
       </mat-card-actions>
       <mat-card-footer>
         <div class="giphy">
@@ -33,3 +44,5 @@
       </mat-card-footer>
     </form>
   </mat-card>
+<!-- show stops-->
+  <app-stop-list></app-stop-list>

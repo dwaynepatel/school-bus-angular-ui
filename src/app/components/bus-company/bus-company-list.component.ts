@@ -7,8 +7,10 @@ import { BusCompanyService } from '../../shared/bus-company.service';
   styleUrls: ['./bus-company-list.component.css']
 })
 export class BusCompanyListComponent implements OnInit {
+  
   //variable to hold a list of any type
   busCompanies: Array<any>;
+ 
 
   constructor(private busCompanyService: BusCompanyService) { }
 

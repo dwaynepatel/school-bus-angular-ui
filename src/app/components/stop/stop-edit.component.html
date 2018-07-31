@@ -14,6 +14,20 @@
     </mat-card-header>
     <mat-card-content>
       <input type="hidden" [(ngModel)]="stop.href" name="href" #href>
+
+
+      <mat-form-field>
+          <input matInput placeholder="stop id"[(ngModel)]="stop.id"
+                 name="stopId" #stopid>
+          </mat-form-field>
+      
+      <mat-form-field>
+          <input matInput placeholder="route id"[(ngModel)]="this.routeId"
+                 name="routeId" #hadToChangeName>
+          </mat-form-field>
+
+
+          
       <mat-form-field>
         <input matInput placeholder="Stop Name" [(ngModel)]="stop.name"
                required name="name" #name>
@@ -50,7 +64,9 @@
               [disabled]="!stopForm.form.valid">Save</button>
       <button mat-raised-button color="secondary" (click)="remove(stop.href)"
               *ngIf="stop.href" type="button">Delete</button>
-      <a mat-button routerLink="/stop-list">Cancel</a>
+               <a mat-button [routerLink]="['/route-edit', busCompanyId, routeId]">Cancel</a>
+    
+  
     </mat-card-actions>
     <mat-card-footer>
       <div class="giphy">

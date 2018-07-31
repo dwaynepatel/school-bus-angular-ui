@@ -15,6 +15,10 @@ export class StopService {
     return this.http.get(this.STOP_API)  
   }
 
+  getAllFromBusCompanyId(busCompanyId: string): Observable<any>{
+    return this.http.get(this.API +  '/' + "stopsById" + '/' + busCompanyId);
+  }
+
   get(id: string) {
     return this.http.get(this.STOP_API + '/' + id);
   }

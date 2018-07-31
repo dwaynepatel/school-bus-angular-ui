@@ -5,7 +5,13 @@
     </mat-card-header>
     <mat-card-content>
       <input type="hidden" [(ngModel)]="driver.href" name="href" #href>
-      <mat-form-field>
+     
+         <mat-form-field>
+          <input matInput placeholder="bus company id" [(ngModel)]="busCompanyId"
+           name="busCompanyId" #haveToChange>
+          </mat-form-field>
+
+       <mat-form-field>
         <input matInput placeholder="First Name" [(ngModel)]="driver.firstName"
                required name="firstName" #firstName>
       </mat-form-field>
@@ -36,7 +42,7 @@
               [disabled]="!driverForm.form.valid">Save</button>
       <button mat-raised-button color="secondary" (click)="remove(driver.href)"
               *ngIf="driver.href" type="button">Delete</button>
-      <a mat-button routerLink="/driver-list">Cancel</a>
+      <a mat-button [routerLink]="['/bus-company-edit', busCompanyId]">Cancel</a>
     </mat-card-actions>
     <mat-card-footer>
       <div class="giphy">

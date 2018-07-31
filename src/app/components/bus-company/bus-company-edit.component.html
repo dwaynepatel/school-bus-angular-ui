@@ -29,6 +29,7 @@
         <button mat-raised-button color="secondary" (click)="remove(busCompany.href)"
                 *ngIf="busCompany.href" type="button">Delete</button>
         <a mat-button routerLink="/bus-company-list">Cancel</a>
+        <a mat-button [routerLink]="['/route-edit',{busCompanyId: busCompany.href}]">Create a Route</a>
       </mat-card-actions>
       <mat-card-footer>
         <div class="giphy">
@@ -37,3 +38,8 @@
       </mat-card-footer>
     </form>
   </mat-card>
+
+  <!--adding the route to the bus company view -->
+  <app-driver-list></app-driver-list>
+  <app-route-list></app-route-list>
+ 

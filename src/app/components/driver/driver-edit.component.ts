@@ -11,7 +11,8 @@ import { DriverService } from '../../shared/driver.service';
   styleUrls: ['./driver-edit.component.css']
 })
 export class DriverEditComponent implements OnInit, OnDestroy {
-  driver: any = {}
+  driver: any = {};
+  busCompanyId: string;
 
   sub: Subscription;
 
@@ -21,8 +22,9 @@ export class DriverEditComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      const id = params['id'];
+    this.sub = this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      
       if (id) {
         this.driverService.get(id).subscribe((driver: any) => {
           if (driver) {
@@ -37,11 +39,18 @@ export class DriverEditComponent implements OnInit, OnDestroy {
           }
         });
       }
+      //get bus company id and assign to variable
+      const busCompanyId = params.get('busCompanyId');
+      console.log("bus driver bus company id "  + params.get('busCompanyId'));
+      if(busCompanyId){
+        this.busCompanyId = busCompanyId;
+        
+      }
     });
   }
 
   gotoList() {
-    this.router.navigate(['/driver-list']);
+    this.router.navigate(['/bus-company-edit', this.busCompanyId]);
   }
 
   ngOnDestroy(){

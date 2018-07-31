@@ -24,6 +24,11 @@ import { RouteListComponent } from './components/route/route-list.component'   /
 
 import { RouteService } from './shared/route.service';
 import { RouteEditComponent } from './components/route/route-edit.component';
+import { BusCompanyComponent } from './components/bus-company/bus-company.component';
+import { PassengerComponent } from './components/passenger/passenger.component';
+import { PassengerService } from './shared/passenger.service';
+import { PassengerListComponent } from './components/passenger/passenger-list.component';
+import { PassengerEditComponent } from './components/passenger/passenger-edit.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,11 @@ import { RouteEditComponent } from './components/route/route-edit.component';
     StopEditComponent,
     RouteMapComponent,
     RouteListComponent,
-    RouteEditComponent
+    RouteEditComponent,
+    BusCompanyComponent,
+    PassengerComponent,
+    PassengerListComponent,
+    PassengerEditComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +59,7 @@ import { RouteEditComponent } from './components/route/route-edit.component';
     }),
     AgmDirectionModule      // agm-direction
   ],
-  providers: [BusCompanyService, DriverService, StopService, RouteService ],
+  providers: [BusCompanyService, DriverService, StopService, RouteService, PassengerService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

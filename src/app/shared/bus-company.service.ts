@@ -29,6 +29,7 @@ export class BusCompanyService {
     return result;
   }
 
+  //using href to identify the bus company
   remove(href: string) {
     return this.http.delete(this.BUS_COMPANY_API + '/' + href);
   }

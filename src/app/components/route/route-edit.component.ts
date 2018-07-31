@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -11,8 +11,8 @@ import { RouteService } from '../../shared/route.service';
 })
 export class RouteEditComponent implements OnInit {
   busRoute: any = {}
-
   sub: Subscription;
+  busCompanyId: string;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -20,15 +20,29 @@ export class RouteEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      const id = params['id'];
+    this.sub = this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      const busCompanyId = params.get('busCompanyId');
+      this.busCompanyId = busCompanyId;
+      console.log("params" , params);
+      console.log(this.busCompanyId);
+      if(busCompanyId){
+        this.busCompanyId = busCompanyId;
+        console.log("busCompanyId", this.busCompanyId);
+      }
+    
+    
+      console.log("id " + id);
       if (id) {
         this.routeService.get(id).subscribe((busRoute: any) => {
+          console.log("inside id");
           if (busRoute) {
             console.log("bus route " + busRoute.name);
-            console.log("this bus route " + this.busRoute.href);
+            console.log("bus route id " + busRoute.id);
+            console.log("this bus route " + this.busCompanyId);
             this.busRoute = busRoute;
             this.busRoute.href = id;
+           // this.busRoute.busCompanyId = busCompanyId;
           
           } else {
             console.log("Bus Route with id '${id}' not found, returning to list");
@@ -39,8 +53,12 @@ export class RouteEditComponent implements OnInit {
     });
   }
 
+  // go to the list with a bus company id
   gotoList() {
-    this.router.navigate(['/route-list']);
+   
+    this.router.navigate(['/bus-company-edit', this.busCompanyId]);
+
+
   }
 
   ngOnDestroy(){
@@ -48,7 +66,6 @@ export class RouteEditComponent implements OnInit {
   }
 
   save(form: NgForm) {
-    console.log("inside save " + form);
     this.routeService.save(form).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
