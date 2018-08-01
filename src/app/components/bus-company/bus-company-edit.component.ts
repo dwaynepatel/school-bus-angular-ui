@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { BusCompanyService } from '../../shared/bus-company.service';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'app-bus-company-edit',
@@ -19,10 +20,15 @@ export class BusCompanyEditComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              private sharedService: SharedService,
               private busCompanyService: BusCompanyService) {
   }
 
   ngOnInit() {
+      //using to change views based on if the user is a passenger or a bus company
+      this.sharedService.isPassenger = false;
+      console.log("inside bus cimpany edit", this.sharedService.isPassenger);
+
     this.sub = this.route.paramMap.subscribe(params => {
       //pull in busCompanyId and assign to id as html is set up to use id the bus company 
       // i add another variable to keep track of the bus company around the view screens i.e busCompanyId
@@ -63,5 +69,7 @@ export class BusCompanyEditComponent implements OnInit, OnDestroy {
       this.gotoList();
     }, error => console.error(error));
   }
+
+
 }
 

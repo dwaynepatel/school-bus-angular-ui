@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { RouteService } from '../../shared/route.service';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'app-route-edit',
@@ -13,13 +14,17 @@ export class RouteEditComponent implements OnInit {
   busRoute: any = {}
   sub: Subscription;
   busCompanyId: string;
+  isPassenger: boolean;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private routeService: RouteService) {
+              private routeService: RouteService,
+              private sharedService: SharedService ) {
   }
 
   ngOnInit() {
+     this.isPassenger = this.sharedService.isPassenger ;
+     
     this.sub = this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       const busCompanyId = params.get('busCompanyId');

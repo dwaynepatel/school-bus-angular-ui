@@ -18,16 +18,16 @@
                  required name="email" #email>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Passenger Address" [(ngModel)]="passenger.address"
-                   required name="address" #address>
+            <textarea matInput placeholder="Passenger Address" [(ngModel)]="passenger.address"
+                   required name="address" #address></textarea>
           </mat-form-field>
           <mat-form-field>
               <input matInput placeholder="Passenger phone" [(ngModel)]="passenger.phone"
                      required name="phone" #phone>
             </mat-form-field>
             <mat-form-field>
-              <input matInput placeholder="Mecial note" [(ngModel)]="passenger.medicalNote"
-                     required name="medicalNote" #medicalNote>
+              <textarea matInput placeholder="Mecial note" [(ngModel)]="passenger.medicalNote"
+                     required name="medicalNote" #medicalNote></textarea>
             </mat-form-field>
     </mat-card-content>
     <h1>testing id {{passenger.href}}</h1>
@@ -37,7 +37,6 @@
       <button mat-raised-button color="secondary" (click)="remove(passenger.href)"
               *ngIf="passenger.href" type="button">Delete</button>
       <a mat-button routerLink="/bus-company-list">Cancel</a>
-      <a mat-button [routerLink]="['/route-edit',{passengerId: passenger.href}]">Create a Route</a>
     </mat-card-actions>
     <mat-card-footer>
       <div class="giphy">
@@ -46,3 +45,5 @@
     </mat-card-footer>
   </form>
 </mat-card>
+<!--display all the routes-->
+<app-passenger-route-list></app-passenger-route-list>

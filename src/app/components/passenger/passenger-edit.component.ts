@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from '../../../../node_modules/rxjs';
+import { Subscription } from 'rxjs';
 import { PassengerService } from '../../shared/passenger.service';
-import { Router, ActivatedRoute } from '../../../../node_modules/@angular/router';
-import { NgForm } from '../../../../node_modules/@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-passenger-edit',

@@ -14,13 +14,13 @@
       <mat-list>
         <mat-list-item *ngFor="let stop of stops">
           <h3 mat-line>
-            <a mat-button [routerLink]="['/stop-edit', stop.id, routeId, busCompanyId]">{{stop.name}}</a>
+            <a mat-button [routerLink]="['/stop-edit', stop.id, stop.routeId, busCompanyId]">{{stop.name}}</a>
           </h3>
         </mat-list-item>
       </mat-list>
     </mat-card-content>
   <!--if there is no route the dont show the add stop button-->
-    <button *ngIf="routeId" mat-fab color="primary" [routerLink]="['/stop-add', busCompanyId, routeId ]">Add</button>
+    <button *ngIf="routeId" mat-fab color="primary" [routerLink]="['/stop-add', busCompanyId, stop.routeId ]">Add</button>
   </mat-card>
 
   <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="14">

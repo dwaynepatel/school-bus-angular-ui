@@ -1,4 +1,5 @@
-<mat-card>
+<!--//using  ngIf to change views based on if the user is a passenger or a bus company-->
+<mat-card *ngIf="!isPassenger">
     <form #busRouteForm="ngForm" (ngSubmit)="save(busRouteForm.value)">
       <mat-card-header>
         <mat-card-title><h2>{{busRoute.name ? 'Edit' : 'Add'}} Bus Route</h2></mat-card-title>
