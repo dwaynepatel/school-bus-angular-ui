@@ -1,7 +1,17 @@
+<!-- nice to have, material stuff-->
+<!--
 <button mat-button><mat-icon>face</mat-icon>Click me!</button>
-<mat-checkbox>check me!</mat-checkbox>
+<mat-checkbox>check me!</mat-checkbox>-->
 <mat-toolbar color="primary">
-        <span>Welcome to {{title}}!</span>
-      </mat-toolbar>
+  <span style="margin-right:50px">Welcome to {{title}}!</span>
+      <button mat-button routerLink="/home" routerLinkActive="active">Home</button>
+      <button mat-button routerLink="/bus-company-list" routerLinkActive="active">Bus company</button>
+      <button mat-button routerLink="/passenger-list" routerLinkActive="active">Passenger</button>
+      <!--call function to log out of auth0-->
+      <!--<div *ngIf="loggedIn"> -->
+      <span class="example-fill-remaining-space"></span>
+      <button  mat-button (click)="logout()">logout</button>
+</mat-toolbar>
+
 
 <router-outlet></router-outlet>

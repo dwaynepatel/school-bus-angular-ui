@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
 
 
@@ -12,7 +12,7 @@ export class BusCompanyService {
   }
 
   getAll(): Observable<any> {
-    return this.http.get(this.BUS_COMPANY_API)  
+    return this.http.get(this.BUS_COMPANY_API);
   }
 
   get(id: string) {

@@ -11,15 +11,30 @@ import { RouteEditComponent } from './components/route/route-edit.component';
 import { BusCompanyComponent } from './components/bus-company/bus-company.component';
 import { PassengerEditComponent } from './components/passenger/passenger-edit.component';
 import { PassengerListComponent } from './components/passenger/passenger-list.component';
+import { HomeComponent } from './components/home/home.component';
+import { CallbackComponent } from './components/callback/callback.component';
+import { AuthGuardService } from './shared/auth.gaurd.service';
 
 
 const routes: Routes = [
 
+
+//security
+{ path: '', redirectTo: '/home', pathMatch: 'full' },
+{ path: 'home',       component: HomeComponent },
+//security from pluralsight auth0
+{
+  path: 'callback',
+  component: CallbackComponent
+},
+
+
   { path: '', redirectTo: '/bus-company-list', pathMatch: 'full' },
   {
     path: 'bus-company-list',
-    component: BusCompanyListComponent
-  },
+    component: BusCompanyListComponent,
+    canActivate: [AuthGuardService]
+  }, 
   {
     path: 'bus-company',
     component: BusCompanyComponent
@@ -27,6 +42,7 @@ const routes: Routes = [
   {
     path: 'bus-company-add',
     component: BusCompanyEditComponent
+   
   },
   {
     path: 'bus-company-edit/:busCompanyId',

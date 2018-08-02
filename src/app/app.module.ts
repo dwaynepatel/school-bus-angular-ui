@@ -31,6 +31,10 @@ import { PassengerListComponent } from './components/passenger/passenger-list.co
 import { PassengerEditComponent } from './components/passenger/passenger-edit.component';
 import { PassengerRouteListComponent } from './components/passenger/passenger-route-list/passenger-route-list.component';
 import { SharedService } from './shared/shared.service';
+import { HomeComponent } from './components/home/home.component';
+import { CallbackComponent } from './components/callback/callback.component';
+import { AuthService } from './shared/auth.service';
+import { AuthGuardService } from './shared/auth.gaurd.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,9 @@ import { SharedService } from './shared/shared.service';
     PassengerComponent,
     PassengerListComponent,
     PassengerEditComponent,
-    PassengerRouteListComponent
+    PassengerRouteListComponent,
+    HomeComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,9 @@ import { SharedService } from './shared/shared.service';
     }),
     AgmDirectionModule      // agm-direction
   ],
-  providers: [BusCompanyService, DriverService, StopService, RouteService, PassengerService, SharedService ],
+  providers: [BusCompanyService, DriverService, StopService, RouteService,
+               PassengerService, AuthService, AuthGuardService, SharedService 
+             ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
