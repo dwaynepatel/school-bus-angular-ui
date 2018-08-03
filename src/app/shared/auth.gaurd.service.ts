@@ -1,5 +1,5 @@
-import { CanActivate } from "../../../node_modules/@angular/router";
-import { Injectable } from "../../../node_modules/@angular/core";
+import { CanActivate } from "@angular/router";
+import { Injectable } from "@angular/core";
 import { AuthService } from "./auth.service";
 
 @Injectable()

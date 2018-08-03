@@ -4,7 +4,7 @@
     <mat-list>
       <mat-list-item *ngFor="let passenger of passengers">
         <h3 mat-line>
-          <a mat-button [routerLink]="['/passenger-edit', passenger.id]">{{passenger.firstName}}</a>
+          <a mat-button  [routerLink]="['/passenger-edit', passenger.id]" (click)="setPassengerId(passenger.id)">{{passenger.firstName}}</a>
         </h3>
       </mat-list-item>
     </mat-list>

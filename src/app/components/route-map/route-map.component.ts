@@ -10,6 +10,8 @@ export class RouteMapComponent implements OnInit {
   //variable to hold a list of any type
   stops: Array<any>;
   directions: Array<any>;
+  // show/hide directions
+  directionView: boolean = false;
 
   latitude: number;
   longitude: number;
@@ -65,6 +67,11 @@ getStops(){
 //method that takes in stops then sorts them.
 sortStops(stops){
 
+}
+//method to show directions or not depenging on a button click
+showDirections(){
+  if(this.directionView == false){ this.directionView = true;
+  }else {this.directionView = false;}
 }
 
 

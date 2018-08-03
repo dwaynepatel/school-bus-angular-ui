@@ -14,6 +14,12 @@ import { PassengerListComponent } from './components/passenger/passenger-list.co
 import { HomeComponent } from './components/home/home.component';
 import { CallbackComponent } from './components/callback/callback.component';
 import { AuthGuardService } from './shared/auth.gaurd.service';
+import { JourneyListComponent } from './components/journey/journey-list/journey-list.component';
+import { JourneyEditComponent } from './components/journey/journey-edit/journey-edit.component';
+import { JourneyPassengerEditComponent } from './components/journey/journey-passenger-edit/journey-passenger-edit.component';
+import { JourneyPassengerListComponent } from './components/journey/journey-passenger-list/journey-passenger-list.component';
+import { DriverViewListComponent } from './components/driver/driver-view-list/driver-view-list.component';
+import { TestDataComponent } from './components/test-data/test-data.component';
 
 
 const routes: Routes = [
@@ -52,6 +58,10 @@ const routes: Routes = [
   {
     path: 'driver-list',
     component: DriverListComponent
+  },
+  {
+    path: 'driver-view-list',
+    component: DriverViewListComponent
   },
   {
     path: 'driver-add/:busCompanyId',
@@ -94,6 +104,37 @@ const routes: Routes = [
       component: PassengerEditComponent
     },
 
+    
+
+        //journey
+        {
+          path: 'journey-list',
+          component: JourneyListComponent
+        },
+        {
+          path: 'journey-add',
+          component: JourneyEditComponent
+        },
+        {
+          path: 'journey-edit/:id',
+          component: JourneyEditComponent
+        },
+
+        
+        //journey-passenger
+        {
+          path: 'journey-passenger-list',
+          component: JourneyPassengerListComponent
+        },
+        {
+          path: 'journey-passenger-add',
+          component: JourneyPassengerEditComponent
+        },
+        {
+          path: 'journey-passenger-edit/:id',
+          component: JourneyPassengerEditComponent
+        },
+
 
   //bus route
   {
@@ -124,6 +165,11 @@ const routes: Routes = [
   {
     path: 'route-edit',
     component: RouteEditComponent
+  },
+  //test data
+  {
+    path: 'test-data',
+    component: TestDataComponent
   }
 
 ];

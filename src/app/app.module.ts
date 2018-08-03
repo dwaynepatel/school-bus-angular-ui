@@ -35,6 +35,13 @@ import { HomeComponent } from './components/home/home.component';
 import { CallbackComponent } from './components/callback/callback.component';
 import { AuthService } from './shared/auth.service';
 import { AuthGuardService } from './shared/auth.gaurd.service';
+import { JourneyPassengerListComponent } from './components/journey/journey-passenger-list/journey-passenger-list.component';
+import { JourneyListComponent } from './components/journey/journey-list/journey-list.component';
+import { JourneyService } from './shared/journey.service';
+import { JourneyEditComponent } from './components/journey/journey-edit/journey-edit.component';
+import { JourneyPassengerEditComponent } from './components/journey/journey-passenger-edit/journey-passenger-edit.component';
+import { DriverViewListComponent } from './components/driver/driver-view-list/driver-view-list.component';
+import { TestDataComponent } from './components/test-data/test-data.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +61,13 @@ import { AuthGuardService } from './shared/auth.gaurd.service';
     PassengerEditComponent,
     PassengerRouteListComponent,
     HomeComponent,
-    CallbackComponent
+    CallbackComponent,
+    JourneyPassengerListComponent,
+    JourneyListComponent,
+    JourneyEditComponent,
+    JourneyPassengerEditComponent,
+    DriverViewListComponent,
+    TestDataComponent
   ],
   imports: [
     BrowserModule,
@@ -63,13 +76,14 @@ import { AuthGuardService } from './shared/auth.gaurd.service';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    //for maps
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAcbdspZrvAtRKPn6pSpBvgQyfjeV4zOgk'
     }),
     AgmDirectionModule      // agm-direction
   ],
   providers: [BusCompanyService, DriverService, StopService, RouteService,
-               PassengerService, AuthService, AuthGuardService, SharedService 
+               PassengerService, AuthService, AuthGuardService, SharedService, JourneyService 
              ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StopService } from '../../shared/stop.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'app-stop-list',
@@ -15,9 +16,13 @@ export class StopListComponent implements OnInit {
   routeId: string;
   busCompanyId: string;
   sub: Subscription;
-  constructor(private stopService: StopService,  private route: ActivatedRoute) { }
+  // is the user a passenger
+  isPassenger: boolean;
+  constructor(private stopService: StopService,  private route: ActivatedRoute,private sharedService: SharedService) { }
 
   ngOnInit() {
+    //if comming from passenger then this variable should be true
+    this.isPassenger = this.sharedService.isPassenger ;
     //this.getStops();
     //get the bus company id from the params, assign it and use it to get the data from the service
   this.sub = this.route.paramMap.subscribe(params => {

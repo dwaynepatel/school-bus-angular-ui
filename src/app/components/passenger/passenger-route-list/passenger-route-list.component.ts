@@ -10,14 +10,21 @@ import { SharedService } from '../../../shared/shared.service';
 export class PassengerRouteListComponent implements OnInit {
   //variable to hold a list of any type
   routes: Array<any>;
-  passenger: string = "passenger";
+  passenger: boolean = false;
 
   constructor(private routeService: RouteService, private sharedService: SharedService) { }
 
   ngOnInit() {
     this.getRoutes();
-    this.sharedService.isPassenger = true;
-    console.log("inside bus passenger ", this.sharedService.isPassenger);
+    console.log("shared service before ", this.sharedService.isPassenger);
+    this.sharedService.setPassenger('true');
+    this.sharedService.checkPassenger();
+    
+    this.passenger = this.sharedService.isPassenger;
+
+
+    //console.log("inside bus passenger ", this.sharedService.);
+    console.log("shared service after ", this.sharedService.isPassenger);
     
   }
 
@@ -30,8 +37,10 @@ export class PassengerRouteListComponent implements OnInit {
   
   //using to change views based on if the user is a passenger or a bus company
   isPassenger(){
-    console.log("before getting shared service");
-    this.sharedService.isPassenger = true;
+    this.sharedService.setPassenger('true');
+    this.sharedService.checkPassenger();
+    this.passenger = this.sharedService.isPassenger;
+    
   }
 
 }

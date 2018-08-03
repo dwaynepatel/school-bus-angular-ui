@@ -9,7 +9,10 @@
       </mat-list-item>
     </mat-list>
   </mat-card-content>
+  <!--if the user is a passenger -->
+  <div *ngIf="!isPassenger">
 <!--if there is no route the dont show the add stop button-->
   <button *ngIf="routeId" mat-fab color="primary" [routerLink]="['/stop-add', busCompanyId, routeId ]">Add</button>
+  </div>
 </mat-card>
 <app-route-map></app-route-map>

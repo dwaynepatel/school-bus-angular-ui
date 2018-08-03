@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PassengerService } from '../../shared/passenger.service';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'app-passenger-list',
@@ -10,7 +11,7 @@ export class PassengerListComponent implements OnInit {
  //variable to hold a list of any type
  passengers: Array<any>;
 
-  constructor(private passengerService: PassengerService) { }
+  constructor(private passengerService: PassengerService, private sharedService: SharedService) { }
 
   ngOnInit() {
     this.getPassengers();
@@ -20,6 +21,10 @@ export class PassengerListComponent implements OnInit {
     this.passengerService.getAll().subscribe(
       data => {this.passengers = data}
     );
+  }
+
+  setPassengerId(passengerId){
+    this.sharedService.setPassengerId(passengerId);
   }
 
 }

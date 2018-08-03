@@ -23,7 +23,9 @@ export class RouteEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    //if comming from passenger then this variable should be true
      this.isPassenger = this.sharedService.isPassenger ;
+     //console.log("route edit onInit" , this.sharedService.isPassenger);
      
     this.sub = this.route.paramMap.subscribe(params => {
       const id = params.get('id');
