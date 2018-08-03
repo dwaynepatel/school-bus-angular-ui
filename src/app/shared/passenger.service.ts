@@ -5,7 +5,8 @@ import { Observable} from 'rxjs';
 
 @Injectable()
 export class PassengerService {
-  public API = '//localhost:8080/api';
+  public API = 'https://schoolbusnci.herokuapp.com/api';
+  //public API = '//localhost:8080/api';
   public PASSENGER_API = this.API + '/passengers';
 
   constructor(private http: HttpClient) {

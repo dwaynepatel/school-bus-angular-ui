@@ -9,7 +9,7 @@ export class AuthService {
     clientID: 'GaaohFu7jSqCnTsR0kmDSiVKEMSMTFM4',
     domain: 'dwaynepatel.eu.auth0.com',
     responseType: 'token id_token',
-    audience: 'http://localhost:8080',
+    audience: 'https://schoolbusnci.herokuapp.com/',
     redirectUri: 'http://localhost:4200/callback',
     scope: 'openid view:buscompanies view:buscompany'
   });

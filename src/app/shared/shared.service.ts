@@ -9,7 +9,8 @@ export class SharedService {
  //boolean to show a different view for a bus company or passenger
  isPassenger:boolean = false; 
  passengerId: string;
- public API = '//localhost:8080/api/test/create';
+ public API = 'https://schoolbusnci.herokuapp.com/api/test/create';
+ //public API = '//localhost:8080/api/test/create';
 
 
   constructor(private http: HttpClient) {
