@@ -10,7 +10,7 @@ export class AuthService {
     domain: 'dwaynepatel.eu.auth0.com',
     responseType: 'token id_token',
     audience: 'https://schoolbusnci.herokuapp.com/',
-    redirectUri: 'http://localhost:4200/callback',
+    redirectUri: 'https://schoolbusui.herokuapp.com/callback',
     scope: 'openid view:buscompanies view:buscompany'
   });
 
