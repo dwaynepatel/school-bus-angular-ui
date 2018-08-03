@@ -22,8 +22,10 @@
         </mat-list-item>
       </mat-list>
     </mat-card-content>
+
   <!--if there is no route the dont show the add stop button-->
-    <button *ngIf="routeId" mat-fab color="primary" [routerLink]="['/stop-add', busCompanyId ]">Add</button>
+  <!--***************************** problems with heroku routeId-->
+   <!-- <button *ngIf="routeId" mat-fab color="primary" [routerLink]="['/stop-add', busCompanyId, stop.routeId ]">Add</button> -->
   </mat-card>
 
   <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="14">
