@@ -12,7 +12,7 @@
       <!--call function to log out of auth0-->
       <!--<div *ngIf="loggedIn"> -->
       <span class="example-fill-remaining-space"></span>
-      <button  mat-button (click)="logout()">logout</button>
+      <button *ngIf='loggedIn' mat-button (click)="logout()">logout</button>
 </mat-toolbar>
 
 
