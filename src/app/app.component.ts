@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './shared/auth.service';
+import { SharedService } from './shared/shared.service';
 
 
 @Component({
@@ -11,16 +12,21 @@ export class AppComponent implements OnInit {
   title = 'School Bus';
   loggedIn: boolean;
 
-  constructor(private authService: AuthService){
+  constructor(private authService: AuthService, private sharedService: SharedService){
     authService.handleAuthentication();
   }
   ngOnInit(){
     if (this.authService.isAuthenticated()){
-      this.loggedIn = true;
+      this.sharedService.setLoggedIn("true");
+      this.sharedService.checkLoggedIn();
+      this.loggedIn = this.sharedService.isLoggedIn;
       console.log("you are loggged in");
     } else {
+      this.sharedService.setLoggedIn("false");
+      this.sharedService.checkLoggedIn();
+      this.loggedIn = this.sharedService.isLoggedIn;
       console.log("you are loggged out");
-      this.loggedIn = false;
+    
     }
   }
 

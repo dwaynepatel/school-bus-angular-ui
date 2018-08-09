@@ -8,6 +8,7 @@ import { Observable} from 'rxjs';
 export class SharedService {
  //boolean to show a different view for a bus company or passenger
  isPassenger:boolean = false; 
+ isLoggedIn:boolean = false;
  passengerId: string;
  public API = 'https://schoolbusnci.herokuapp.com/api/test/create';
  //public API = '//localhost:8080/api/test/create';
@@ -30,6 +31,24 @@ getPassenger(){
  return localStorage.getItem('passenger');
 }
 
+setLoggedIn(input){
+  localStorage.setItem('loggedIn', input );
+  this.checkLoggedIn();
+}
+
+getLoggedIn(){
+ return localStorage.getItem('loggedIn');
+}
+
+checkLoggedIn(){
+  console.log(" in shared service after changing loggedin ", this.getLoggedIn());
+if(this.getLoggedIn() == 'true'){
+  this.isLoggedIn = true;
+} else{
+  this.isLoggedIn = false;
+}
+}
+
 checkPassenger(){
   console.log(" in shared service after changing  ", this.getPassenger());
 if(this.getPassenger() == 'true'){
@@ -38,16 +57,15 @@ if(this.getPassenger() == 'true'){
   this.isPassenger = false;
 }
 }
+
 setPassengerId(input){
   localStorage.setItem('passengerId', input );
 }
 
 getPassengerId(){
   return this.passengerId = localStorage.getItem('passengerId');
-
+}
 
  }
 
- 
 
-}

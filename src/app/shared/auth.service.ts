@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
+import { SharedService } from './shared.service';
 
 @Injectable()
 export class AuthService {
@@ -14,10 +15,13 @@ export class AuthService {
     scope: 'openid view:buscompanies view:buscompany'
   });
 
-  constructor(public router: Router) {}
+  constructor(public router: Router,private sharedService: SharedService) {}
 
   public login(): void {
     this.auth0.authorize();
+    this.sharedService.setLoggedIn("true");
+    this.sharedService.checkLoggedIn();
+    
   }
 
   public handleAuthentication(): void {
