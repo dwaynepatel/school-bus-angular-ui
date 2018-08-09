@@ -21,7 +21,8 @@ export class AuthService {
     this.auth0.authorize();
     this.sharedService.setLoggedIn("true");
     this.sharedService.checkLoggedIn();
-    
+    console.log("from auth service class you are logged in");
+
   }
 
   public handleAuthentication(): void {

@@ -16,6 +16,16 @@ export class AppComponent implements OnInit {
     authService.handleAuthentication();
   }
   ngOnInit(){
+    this.checkLogin();
+  }
+
+  logout(){
+    this.authService.logout();
+    console.log("loggged out");
+    this.loggedIn = false;
+  }
+
+  checkLogin(){
     if (this.authService.isAuthenticated()){
       this.sharedService.setLoggedIn("true");
       this.sharedService.checkLoggedIn();
@@ -28,12 +38,6 @@ export class AppComponent implements OnInit {
       console.log("you are loggged out");
     
     }
-  }
-
-  logout(){
-    this.authService.logout();
-    console.log("loggged out");
-    this.loggedIn = false;
   }
   
 
