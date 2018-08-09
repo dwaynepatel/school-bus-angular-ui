@@ -1,5 +1,6 @@
 
 # Schoolbus-Ui
+this is a front end applicationn which accepts backend calls from a Java spring REST application.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 

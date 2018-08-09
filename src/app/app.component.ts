@@ -18,13 +18,16 @@ export class AppComponent implements OnInit {
     if (this.authService.isAuthenticated()){
       this.loggedIn = true;
       console.log("you are loggged in");
+    } else {
+      console.log("you are loggged out");
+      this.loggedIn = false;
     }
   }
 
   logout(){
     this.authService.logout();
     console.log("loggged out");
-    this.loggedIn = true;
+    this.loggedIn = false;
   }
   
 
