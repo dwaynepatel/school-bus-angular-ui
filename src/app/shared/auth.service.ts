@@ -7,7 +7,7 @@ import { SharedService } from './shared.service';
 export class AuthService {
 
   auth0 = new auth0.WebAuth({
-    clientID: 'GaaohFu7jSqCnTsR0kmDSiVKEMSMTFM4',
+    clientID: 'add your client ID here',
     domain: 'dwaynepatel.eu.auth0.com',
     responseType: 'token id_token',
     //changing audience and redirect to local
