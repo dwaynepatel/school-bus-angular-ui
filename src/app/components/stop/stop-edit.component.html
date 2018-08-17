@@ -1,0 +1,77 @@
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)" [zoom]="zoom">
+  <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+  
+ 
+</agm-map>
+
+
+<mat-card>
+  <form #stopForm="ngForm" (ngSubmit)="save(stopForm.value)">
+    <mat-card-header>
+      <mat-card-title><h2>{{stop.name ? 'Edit' : 'Add'}} stop</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <input type="hidden" [(ngModel)]="stop.href" name="href" #href>
+
+
+      <mat-form-field>
+          <input matInput placeholder="stop id"[(ngModel)]="stop.id"
+                 name="stopId" #stopid>
+          </mat-form-field>
+      
+      <mat-form-field>
+          <input matInput placeholder="route id"[(ngModel)]="this.routeId"
+                 name="routeId" #hadToChangeName>
+          </mat-form-field>
+
+
+          
+      <mat-form-field>
+        <input matInput placeholder="Stop Name" [(ngModel)]="stop.name"
+               required name="name" #name>
+      </mat-form-field>
+      <mat-form-field>
+        
+        <input matInput placeholder="GPS Longitude" [(ngModel)]="stop.gpsLon" value={{stop.gpsLog}}
+               required name="gpsLon" #gpsLon>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="GPS Latitude" [(ngModel)]="stop.gpsLat" value={{stop.gpsLat}}
+                 required name="gpsLat" #gpsLat>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Time" [(ngModel)]="stop.time"
+                   required name="time" #time>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="First Stop" [(ngModel)]="stop.firstStop"
+                     required name="firstStop" #firstStop>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Last Stop" [(ngModel)]="stop.lastStop"
+                     required name="lastStop" #lastStop>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Stop Number" [(ngModel)]="stop.stopNumber"
+                     required name="stopNumber" #stopNumber>
+            </mat-form-field>
+    </mat-card-content>
+    <h1>testing id {{stop.href}}</h1>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit"
+              [disabled]="!stopForm.form.valid">Save</button>
+      <button mat-raised-button color="secondary" (click)="remove(stop.href)"
+              *ngIf="stop.href" type="button">Delete</button>
+               <a mat-button [routerLink]="['/route-edit', busCompanyId, routeId]">Cancel</a>
+    
+  
+    </mat-card-actions>
+    <mat-card-footer>
+      <div class="giphy">
+        <img src="assets/images/stop.jpg">
+      </div>
+    </mat-card-footer>
+  </form>
+</mat-card>

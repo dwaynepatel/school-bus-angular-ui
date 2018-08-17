@@ -1,0 +1,76 @@
+<mat-card>
+    <form #journeyForm="ngForm" (ngSubmit)="save(journeyForm.value)">
+      <mat-card-header>
+        <mat-card-title><h2>{{journey.name ? 'Edit' : 'Add'}} journey</h2></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <input type="hidden" [(ngModel)]="journey.href" name="href" #href>
+        <mat-form-field>
+          <input matInput placeholder="journey Name" [(ngModel)]="journey.name"
+                 required name="name" #name>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="journey driverId " [(ngModel)]="journey.driverId"
+                    name="driverId" #driverId>
+        </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="journey passengerId " [(ngModel)]="journey.passengerId"
+                        name="passengerId" #passengerId>
+              </mat-form-field>
+           
+                <mat-form-field>
+                    <input matInput placeholder="journey routeId " [(ngModel)]="journey.routeId"
+                           name="routeId" #routeId>
+                  </mat-form-field>
+               
+                    <mat-form-field>
+                        <input matInput placeholder="journey stopId " [(ngModel)]="journey.stopId"
+                                name="stopId" #stopId>
+                      </mat-form-field>
+                
+                        <mat-form-field>
+                            <input matInput placeholder="journey date" [(ngModel)]="journey.date"
+                                    name="date" #date>
+                          </mat-form-field>
+             
+    <mat-form-field>
+        <input matInput placeholder="journey stopOn " [(ngModel)]="journey.stopOn"
+                name="stopOn" #stopOn>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="journey stopOff " [(ngModel)]="journey.stopOff"
+                  name="stopOff" #stopOff>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="journey passengerOnTime " [(ngModel)]="journey.passengerOnTime"
+                    name="passengerOnTime" #passengerOnTime>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="journey passengerOffTime " [(ngModel)]="journey.passengerOffTime"
+                      name="passengerOffTime" #passengerOffTime>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="journey passengerIsOn " [(ngModel)]="journey.passengerIsOn"
+                        name="passengerIsOn" #passengerIsOn>
+              </mat-form-field>
+              <mat-form-field>
+                  <input matInput placeholder="journey passengerIsOff " [(ngModel)]="journey.passengerIsOff"
+                          name="passengerIsOff" #passengerId>
+                </mat-form-field>
+         
+      </mat-card-content>
+      <h1>testing id {{journey.href}}</h1>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit"
+                [disabled]="!journeyForm.form.valid">Save</button>
+        <button mat-raised-button color="secondary" (click)="remove(journey.href)"
+                *ngIf="journey.href" type="button">Delete</button>
+        <a mat-button routerLink="/journey-list">Cancel</a>
+      </mat-card-actions>
+      <mat-card-footer>
+        <div class="giphy">
+          <img src="https://d1rw89lz12ur5s.cloudfront.net/photo/pinkgorillagames/file/b228d784b1ad244c2afc90dfb37ee277/large/Zelda%20Phantom%20Hourglass%20Link%20Small%20Plush.jpg" alt="test image">
+        </div>
+      </mat-card-footer>
+    </form>
+  </mat-card>

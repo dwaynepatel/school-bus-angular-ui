@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-header>Bus Route List</mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let route of routes">
+        <h3 mat-line>
+          <!--sending bus company id and route id, route id may be sufficient -->
+          <a mat-button [routerLink]="['/route-edit',route.busCompanyId,route.id]" (click)="isPassenger()">{{route.name}}</a>
+        </h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,50 @@
+<mat-card>
+  <form #passengerForm="ngForm" (ngSubmit)="save(passengerForm.value)">
+    <mat-card-header>
+      <mat-card-title><h2>{{passenger.firstName ? 'Edit' : 'Add'}} Passenger</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <input type="hidden" [(ngModel)]="passenger.href" name="href" #href>
+      <mat-form-field>
+        <input matInput placeholder="Passenger First Name" [(ngModel)]="passenger.firstName"
+               required name="firstName" #firstName>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Passenger Last Name" [(ngModel)]="passenger.lastName"
+               required name="lastName" #lastName>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Passenger email" [(ngModel)]="passenger.email"
+                 required name="email" #email>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput placeholder="Passenger Address" [(ngModel)]="passenger.address"
+                   required name="address" #address></textarea>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="Passenger phone" [(ngModel)]="passenger.phone"
+                     required name="phone" #phone>
+            </mat-form-field>
+            <mat-form-field>
+              <textarea matInput placeholder="Mecial note" [(ngModel)]="passenger.medicalNote"
+                      name="medicalNote" #medicalNote></textarea>
+            </mat-form-field>
+    </mat-card-content>
+    <h1>testing id {{passenger.href}}</h1>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit"
+              [disabled]="!passengerForm.form.valid">Save</button>
+      <button mat-raised-button color="secondary" (click)="remove(passenger.href)"
+              *ngIf="passenger.href" type="button">Delete</button>
+      <a mat-button routerLink="/bus-company-list">Cancel</a>
+    </mat-card-actions>
+    <mat-card-footer>
+      <div class="giphy">
+        <img src="/assets/images/passenger.png" alt="test image">
+      </div>
+    </mat-card-footer>
+  </form>
+</mat-card>
+<!--display all the routes-->
+<app-passenger-route-list></app-passenger-route-list>
+<app-journey-passenger-list></app-journey-passenger-list>

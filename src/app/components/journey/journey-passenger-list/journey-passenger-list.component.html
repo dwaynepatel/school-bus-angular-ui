@@ -1,0 +1,13 @@
+<mat-card>
+    <mat-card-header>Journey Passenger List</mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let journey of journeys">
+          <h3 mat-line>
+            <a mat-button [routerLink]="['/journey-passenger-edit', journey.id]">{{journey.name}}</a>
+          </h3>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <!--<button mat-fab color="primary" [routerLink]="['/journey-passenger-add']">Add</button> -->
+  </mat-card>
