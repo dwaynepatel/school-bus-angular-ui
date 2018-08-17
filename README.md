@@ -1,6 +1,18 @@
 
 # Schoolbus-Ui
-this is a front end applicationn which accepts backend calls from a Java spring REST application.
+Schoool Bus application allowing passengers sign up for school bus route and track their childrens movements.
+This Angular 6 front end applicationn accepts backend calls from a Java spring Boot REST application with JWT Security. This applicationn uses Auth0
+Features include:
+                    Select bus stop locations from clicking on a Google map
+                    CRUD Bus Company
+                    CRUD Bus driver
+                    CRUD Bus Stop
+                    CRUD Bus Passenger
+                    CRUD Bus Route
+                    CRUD Bus Journey
+                    Let a passenger select a journey
+                    assign a driver to a journey
+                    message the user each time the passenger enters/exits the bus.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
