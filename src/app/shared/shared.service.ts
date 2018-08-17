@@ -10,7 +10,7 @@ export class SharedService {
  isPassenger:boolean = false; 
  isLoggedIn:boolean = false;
  passengerId: string;
- public API = 'https://schoolbusnci.herokuapp.com/api/test/create';
+ public API = 'http://localhost:8080/api/test/create';
  //public API = '//localhost:8080/api/test/create';
 
 

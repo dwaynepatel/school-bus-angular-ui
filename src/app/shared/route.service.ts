@@ -5,7 +5,7 @@ import { Observable} from 'rxjs';
 
 @Injectable()
 export class RouteService {
-  public API = 'https://schoolbusnci.herokuapp.com/api';
+  public API = 'http://localhost:8080/api';
   //public API = '//localhost:8080/api';
   public ROUTE_API = this.API + '/routes';
 
